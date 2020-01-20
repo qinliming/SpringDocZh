@@ -31,6 +31,7 @@ Spring因为早期
 https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition[J2EE] 标准的复杂性而在2003年被创建了出来.
 有人认为它们是竞争关系, 世界上Spring和javaEE是互补关系. Spring的开发模型并没有完全拥抱JavaEE;
 而是，集成了精心挑选的javaEE旗下的模块。
+
 * Servlet API (https://jcp.org/en/jsr/detail?id=340[JSR 340])
 * WebSocket API (https://www.jcp.org/en/jsr/detail?id=356[JSR 356])
 * Concurrency Utilities (https://www.jcp.org/en/jsr/detail?id=236[JSR 236])
