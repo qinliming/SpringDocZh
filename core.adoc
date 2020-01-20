@@ -7,8 +7,7 @@
 :tabsize: 4
 :docinfo1:
 参考文档的此部分包含了几乎整个Spring框架的所有技术点。
-其中最重要的是Spring框架的控制反转容器（IOC），紧随SpringIOC之后，就覆盖了大部分SpringAOP技术，Spring也有它自己的一个概念非常好理解的AOP框架，它解决了需要AOP场景的百分之80的痛点。
-也提供了包含集成AspectJ (当前特性最丰富，最成熟的AOP框架)的功能文档
+其中最重要的是Spring框架的控制反转容器（IOC），紧随SpringIOC之后，就覆盖了大部分SpringAOP技术，Spring也有它自己的一个概念非常好理解的AOP框架，它解决了需要AOP场景的百分之80的痛点。也提供了包含集成AspectJ (当前特性最丰富，最成熟的AOP框架)的功能文档
 
 include::core/core-beans.adoc[leveloffset=+1]
 
