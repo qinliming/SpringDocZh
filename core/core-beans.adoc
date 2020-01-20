@@ -15,26 +15,18 @@
 * Event publication
 * 基于不同应用场景的上下文，例如应用与web应用的 `WebApplicationContext`
 
-简言之， `BeanFactory` provides the configuration framework and basic
-functionality, and the `ApplicationContext` adds more enterprise-specific functionality.
-The `ApplicationContext` is a complete superset of the `BeanFactory` and is used
-exclusively in this chapter in descriptions of Spring's IoC container. For more
-information on using the `BeanFactory` instead of the `ApplicationContext,` see
-<<beans-beanfactory>>.
+简言之， `BeanFactory` 提供了配置框架和简单的功能, `ApplicationContext` 增加了更多企业级的功能
+`ApplicationContext` 完全就是 `BeanFactory` 的超集在本章节描述SpringIOC容器过程中只使用它。 获取更多用 `BeanFactory` 替代 `ApplicationContext,` 的方法请参考
+<<beans-beanfactory>>。
 
-In Spring, the objects that form the backbone of your application and that are managed
-by the Spring IoC container are called beans. A bean is an object that is
-instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a
-bean is simply one of many objects in your application. Beans, and the dependencies
-among them, are reflected in the configuration metadata used by a container.
-
+在Spring中支撑你应用的，由Spring IOC容器 管理的对象叫做Bean，Bean就是指被Spring IOC容器，初始化，装配，或者说是管理的对象。换句话说，一个bean只是你应用中普普统统的对象之一，beans和它们的依赖被映射在容器使用的元数据配置里。
 
 
 
 [[beans-basics]]
-== Container Overview
+== 容器概览
 
-The `org.springframework.context.ApplicationContext` interface represents the Spring IoC
+`org.springframework.context.ApplicationContext` interface represents the Spring IoC
 container and is responsible for instantiating, configuring, and assembling the
 beans. The container gets its instructions on what objects to
 instantiate, configure, and assemble by reading configuration metadata. The
