@@ -68,16 +68,11 @@ NOTE:元数据不止支持使用XML格式，Spring IoC容器本身是与配置�
 Spring配置文件，由至少一个容器必须管理的典型的bean定义组成。基于XML的配置元数据通过在 `<beans\>` 标签里的 `<bean/>` 标签在xml的顶层实现,java配置使用典型的 `@Bean` 注解方式在一个 `@Configuration` 类里。
 
 这些bean定义与组成你的应用的那些对象是一一对应的。
-Typically, you define service layer objects, data access objects (DAOs), presentation
-objects such as Struts `Action` instances, infrastructure objects such as Hibernate
-`SessionFactories`, JMS `Queues`, and so forth. Typically, one does not configure
-fine-grained domain objects in the container, because it is usually the responsibility
-of DAOs and business logic to create and load domain objects. However, you can use
-Spring's integration with AspectJ to configure objects that have been created outside
-the control of an IoC container. See <<aop-atconfigurable,Using AspectJ to
+一般, 你会定义服务层的对象, DAO (DAOs), 表现层对象 例如 Struts `Action` 实例, 基础对象 例如 Hibernate的
+`SessionFactories`, JMS的 `Queues`之类的。 通常, 人们不会将细粒度的领域对象配置进容器，因为这通常新建或者加载这些领域对象是DAO和业务逻辑的义务。 然而, 你可以通过集成AspectJ到Spring中来配置那些在Spring IoC容器外面创建的对象。参考 <<aop-atconfigurable,Using AspectJ to
 dependency-inject domain objects with Spring>>.
 
-The following example shows the basic structure of XML-based configuration metadata:
+以下实例描述了基于XML的配置元数据的基本组成:
 
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
@@ -101,19 +96,17 @@ The following example shows the basic structure of XML-based configuration metad
 	</beans>
 ----
 
-<1> The `id` attribute is a string that identifies the individual bean definition.
+<1> `id` 属性是一个用于识别单个bean定义的字符串 
 
-<2> The `class` attribute defines the type of the bean and uses the fully qualified
-classname.
+<2> `class` 属性定义了bean的数据类型，它使用完整的类名
 
-The value of the `id` attribute refers to collaborating objects. The XML for
-referring to collaborating objects is not shown in this example. See
-<<beans-dependencies,Dependencies>> for more information.
+可以通过 `id` 引用合作类，引用合作类的xml并没有在这个实例中展示. 参考
+<<beans-dependencies,Dependencies>> 。
 
 
 
 [[beans-factory-instantiation]]
-=== Instantiating a Container
+=== 初始化一个容器
 
 The location path or paths
 supplied to an `ApplicationContext` constructor are resource strings that let
