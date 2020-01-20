@@ -4,16 +4,8 @@
 
 [[beans-introduction]]
 == Spring IoC 容器和 Beans 简介
-本节覆盖了Spring框架IoC原理的实现，IoC也被称为依赖注入（DI）
-. It is a process whereby objects define their dependencies (that is, the other objects they work with) only through
-constructor arguments, arguments to a factory method, or properties that are set on the
-object instance after it is constructed or returned from a factory method. The container
-then injects those dependencies when it creates the bean. This process is fundamentally
-the inverse (hence the name, Inversion of Control) of the bean itself
-controlling the instantiation or location of its dependencies by using direct
-construction of classes or a mechanism such as the Service Locator pattern.
-
-
+本节覆盖了Spring框架IoC原理的实现，IoC也被称为依赖注入（DI）。它是一个对象只通过，构造函数的参数，工厂的参数，或者在其被构造或者被工厂方法生成后设置的属性，而定义它的依赖（其它的本对象运行需要的对象）的过程。
+容器会在对象建立后插入这些依赖。这个过程从根本上看，是对于bean直接通过类构造方法，或者服务定位器模式的机制控制其依赖的实例化，或者位置，这一方式的一个反转（因此得到了控制反转[IOC]这个名字）
 The `org.springframework.beans` and `org.springframework.context` packages are the basis
 for Spring Framework's IoC container. The
 {api-spring-framework}/beans/factory/BeanFactory.html[`BeanFactory`]
