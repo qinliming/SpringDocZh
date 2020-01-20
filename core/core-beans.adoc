@@ -58,22 +58,16 @@ NOTE:元数据不止支持使用XML格式，Spring IoC容器本身是与配置�
 获取更多的关于其他格式的元数据的信息, 请看这里:
 
 * <<beans-annotation-config,Annotation-based configuration>>: Spring2.5引入了对注解配置元数据的支持。
-* <<beans-java, Java-based configuration>>: Starting with Spring 3.0, many features
-  provided by the Spring JavaConfig project became part of the core Spring Framework.
-  Thus, you can define beans external to your application classes by using Java rather
-  than XML files. To use these new features, see the
+* <<beans-java, Java-based configuration>>: 
+发起自Spring3.0 很多特性都是来自 Spring JavaConfig 这个项目，现在它已经是Spring框架的一部分。因此，你可以通过在应用class外部定义bean而不是用XML文件。 想使用这些新特性，请参考
   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html[`@Configuration`],
   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html[`@Bean`],
   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html[`@Import`],
-  and https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html[`@DependsOn`] annotations.
+  和 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html[`@DependsOn`] 注解。
 
-发起自Spring3.0 很多特性都是来自 Spring JavaConfig 这个项目，现在它已经是Spring框架的一部分。
-Spring configuration consists of at least one and typically more than one bean
-definition that the container must manage. XML-based configuration metadata configures these
-beans as `<bean/>` elements inside a top-level `<beans/>` element. Java
-configuration typically uses `@Bean`-annotated methods within a `@Configuration` class.
+Spring配置文件，由至少一个容器必须管理的典型的bean定义组成。基于XML的配置元数据通过在 `<beans\>` 标签里的 `<bean/>` 标签在xml的顶层实现,java配置使用典型的 `@Bean` 注解方式在一个 `@Configuration` 类里。
 
-These bean definitions correspond to the actual objects that make up your application.
+这些bean定义与组成你的应用的那些对象是一一对应的。
 Typically, you define service layer objects, data access objects (DAOs), presentation
 objects such as Struts `Action` instances, infrastructure objects such as Hibernate
 `SessionFactories`, JMS `Queues`, and so forth. Typically, one does not configure
