@@ -46,26 +46,18 @@ image::images/container-magic.png[]
 
 
 [[beans-factory-metadata]]
-=== Configuration Metadata
+=== 配置元数据
 
-As the preceding diagram shows, the Spring IoC container consumes a form of
-configuration metadata. This configuration metadata represents how you, as an
-application developer, tell the Spring container to instantiate, configure, and assemble
-the objects in your application.
+如前图所示，Spring IoC 容器使用一个配置元数据，这个配置元数据，描述了你开发者要告诉Spring容器需要在你的应用里实例化，配置，装配的对象。
 
-Configuration metadata is traditionally supplied in a simple and intuitive XML format,
-which is what most of this chapter uses to convey key concepts and features of the
-Spring IoC container.
+配置元数据传统意义上就像在本章节中绝大多数时候用来传达Spring IoC容器的概念和特性的时候一样通过一个简单，直观的XML来提供的。
 
-NOTE: XML-based metadata is not the only allowed form of configuration metadata.
-The Spring IoC container itself is totally decoupled from the format in which this
-configuration metadata is actually written. These days, many developers choose
-<<beans-java, Java-based configuration>> for their Spring applications.
+NOTE:元数据不止支持使用XML格式，Spring IoC容器本身是与配置元数据具体用什么格式不挂钩的。现在, 很多开发者 选择在他们的应用里使用
+<<beans-java, Java-based configuration>> 
 
-For information about using other forms of metadata with the Spring container, see:
+获取更多的关于其他格式的元数据的信息, 请看这里:
 
-* <<beans-annotation-config,Annotation-based configuration>>: Spring 2.5 introduced
-  support for annotation-based configuration metadata.
+* <<beans-annotation-config,Annotation-based configuration>>: Spring2.5引入了对注解配置元数据的支持。
 * <<beans-java, Java-based configuration>>: Starting with Spring 3.0, many features
   provided by the Spring JavaConfig project became part of the core Spring Framework.
   Thus, you can define beans external to your application classes by using Java rather
@@ -75,6 +67,7 @@ For information about using other forms of metadata with the Spring container, s
   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html[`@Import`],
   and https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html[`@DependsOn`] annotations.
 
+发起自Spring3.0 很多特性都是来自 Spring JavaConfig 这个项目，现在它已经是Spring框架的一部分。
 Spring configuration consists of at least one and typically more than one bean
 definition that the container must manage. XML-based configuration metadata configures these
 beans as `<bean/>` elements inside a top-level `<beans/>` element. Java
