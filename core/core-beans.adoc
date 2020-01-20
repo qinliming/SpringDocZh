@@ -6,8 +6,7 @@
 == Spring IoC 容器和 Beans 简介
 本节覆盖了Spring框架IoC原理的实现，IoC也被称为依赖注入（DI）。它是一个对象只通过，构造函数的参数，工厂的参数，或者在其被构造或者被工厂方法生成后设置的属性，而定义它的依赖（其它的本对象运行需要的对象）的过程。
 容器会在对象建立后插入这些依赖。这个过程从根本上看，是对于bean直接通过类构造方法，或者服务定位器模式的机制控制其依赖的实例化，或者位置，这一方式的一个反转（因此得到了控制反转[IOC]这个名字）
-`org.springframework.beans` 和 `org.springframework.context` 包是Spring IoC容器的基础。
-{api-spring-framework}/beans/factory/BeanFactory.html[`BeanFactory`]接口提供了一种能够管理任何类型的对象的高级配置机制。
+`org.springframework.beans` 和 `org.springframework.context` 包是Spring IoC容器的基础。{api-spring-framework}/beans/factory/BeanFactory.html[`BeanFactory`]接口提供了一种能够管理任何类型的对象的高级配置机制。
 {api-spring-framework}/context/ApplicationContext.html[`ApplicationContext`]
 是 `BeanFactory` 的一个子接口 它增加了:
 
@@ -16,7 +15,7 @@
 * Event publication
 * 基于不同应用场景的上下文，例如应用与web应用的 `WebApplicationContext`
 
-In short, the `BeanFactory` provides the configuration framework and basic
+简言之， `BeanFactory` provides the configuration framework and basic
 functionality, and the `ApplicationContext` adds more enterprise-specific functionality.
 The `ApplicationContext` is a complete superset of the `BeanFactory` and is used
 exclusively in this chapter in descriptions of Spring's IoC container. For more
