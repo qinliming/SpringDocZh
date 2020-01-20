@@ -60,38 +60,28 @@ Spring依然在创新并进化着，在Spring框架之上，诞生了很多其�
 * 在各个层面提供选择。Spring让你尽可能晚地推迟设计决策。
 例如,您可以不修改代码的通过配置切换数据库持化功能。这同样适用于其他基础设施的关注点和集成
 第三方api。
-* Accommodate diverse perspectives. Spring embraces flexibility and is not opinionated
-about how things should be done. It supports a wide range of application needs with
-different perspectives.
-* Maintain strong backward compatibility. Spring’s evolution has been carefully managed
-to force few breaking changes between versions. Spring supports a carefully chosen range
+* 支持不同的范式，spring信仰灵活性，并不会限制事情如何去做，它广泛的支持不同应用需求的不同范式。
+ Spring supports a carefully chosen range
 of JDK versions and third-party libraries to facilitate maintenance of applications and
 libraries that depend on Spring.
-* Care about API design. The Spring team puts a lot of thought and time into making APIs
-that are intuitive and that hold up across many versions and many years.
-* Set high standards for code quality. The Spring Framework puts a strong emphasis on
-meaningful, current, and accurate javadoc. It is one of very few projects that can claim
-clean code structure with  no circular dependencies between packages.
-
+* 保持强大的向后兼容性，Spring小心仔细的控制着迭代，已保证不同版本之间的兼容性，Spring支持精心选择的JDK版本和第三方库版本，以降低依赖spring的应用和库的维护难度。
+* 精心设计的API，Spring团队花费了大量精力和时间在设计一套跨多个版本，直观的API上。
+* 高标准的代码质量要求，Spring框架非常强调
+有意义、及时和准确的javadoc。它是很少的代码结构清晰，且没有循环依赖的项目之一。
 
 
 
 [[overview-feedback]]
 == 反馈和贡献
+对于 如何使用或者诊断调试的问题我们建议使用StackOverflow进行提问
+我们也有 https://spring.io/questions[questions page] 这么一个标签页面可以查看.
+如果你非常确定发现了spring的一个问题，或者有新的特性需要提出建议你使用 https://github.com/spring-projects/spring-framework/issues[GitHub Issues].
 
-For how-to questions or diagnosing or debugging issues, we suggest using StackOverflow,
-and we have a https://spring.io/questions[questions page] that lists the suggested tags to use.
-If you're fairly certain that there is a problem in the Spring Framework or would like
-to suggest a feature, please use the https://github.com/spring-projects/spring-framework/issues[GitHub Issues].
-
-If you have a solution in mind or a suggested fix, you can submit a pull request on
-https://github.com/spring-projects/spring-framework[Github]. However, please keep in mind
-that, for all but the most trivial issues, we expect a ticket to be filed in the issue
-tracker, where discussions take place and leave a record for future reference.
-
-For more details see the guidelines at the
+如果你有解决方案或者建议修复方式，你可以在
+https://github.com/spring-projects/spring-framework[Github].提起推送 
+然而，请注意，对于大多数琐碎的问题，我们希望你在问题跟踪中提起一个ticket，那是一个可以讨论并且能够提供以后查询地方
+更详细的内容请参见
 https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING.md[CONTRIBUTING],
-top-level project page.
 
 
 
