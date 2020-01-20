@@ -77,7 +77,7 @@ clean code structure with  no circular dependencies between packages.
 
 
 [[overview-feedback]]
-== Feedback and Contributions
+== 反馈和贡献
 
 For how-to questions or diagnosing or debugging issues, we suggest using StackOverflow,
 and we have a https://spring.io/questions[questions page] that lists the suggested tags to use.
