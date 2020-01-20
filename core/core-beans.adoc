@@ -26,36 +26,19 @@
 [[beans-basics]]
 == 容器概览
 
-`org.springframework.context.ApplicationContext` interface represents the Spring IoC
-container and is responsible for instantiating, configuring, and assembling the
-beans. The container gets its instructions on what objects to
-instantiate, configure, and assemble by reading configuration metadata. The
-configuration metadata is represented in XML, Java annotations, or Java code. It lets
-you express the objects that compose your application and the rich interdependencies
-between those objects.
-
-Several implementations of the `ApplicationContext` interface are supplied
-with Spring. In stand-alone applications, it is common to create an
-instance of
+`org.springframework.context.ApplicationContext` 接口代表Spring IoC容器，并且负责，实例化，配置，装配 
+容器通过读取配置元数据来获取它需要的关于哪个对象需要实例化，配置，装配的指令。配置元数据是通过XML java注解或者java代码进行描述的。
+它们使你能够描述构成你应用的对象和这些对象之间错总复杂的内部关系。
+Spring提供了多种不同的 `ApplicationContext` 实现在独立应用中通常使用
 {api-spring-framework}/context/support/ClassPathXmlApplicationContext.html[`ClassPathXmlApplicationContext`]
-or {api-spring-framework}/context/support/FileSystemXmlApplicationContext.html[`FileSystemXmlApplicationContext`].
-While XML has been the traditional format for defining configuration metadata, you can
-instruct the container to use Java annotations or code as the metadata format by
-providing a small amount of XML configuration to declaratively enable support for these
-additional metadata formats.
+或者 {api-spring-framework}/context/support/FileSystemXmlApplicationContext.html[`FileSystemXmlApplicationContext`].
+XML是一种传统的定义配置元数据的方式，同时你也可以通过提供一小段xml通过定义启动对于这些额外格式的支持令容器使用java注解或者java代码作为元数据格式。
 
-In most application scenarios, explicit user code is not required to instantiate one or
-more instances of a Spring IoC container. For example, in a web application scenario, a
-simple eight (or so) lines of boilerplate web descriptor XML in the `web.xml` file
-of the application typically suffices (see <<context-create>>). If you use the
-https://spring.io/tools/sts[Spring Tool Suite] (an Eclipse-powered development
-environment), you can easily create this boilerplate configuration with a few mouse clicks or
-keystrokes.
+在绝大多数应用场景下，不需要明确的用户代码显式的初始化一个或者多个SpringIoC容器。例如，在web应用场景下一个简简单单的8行(或者其它)的在 `web.xml`文件中的web描述XML通常就可以满足需要了
+ (参考 <<context-create>>). 如果你使用
+https://spring.io/tools/sts[Spring Tool Suite] (一个基于Eclipse的开发环境), 你只需要简单的点几下鼠标就可以创建该文件。
 
-The following diagram shows a high-level view of how Spring works. Your application classes
-are combined with configuration metadata so that, after the `ApplicationContext` is
-created and initialized, you have a fully configured and executable system or
-application.
+下图，从高级层面描述了Spring框架如何工作。你应用的类通过配置元数据进行了连接，所以，在 `ApplicationContext` 建立并初始化后，你就有一个配置完整的可运行的系统或者应用了。
 
 .The Spring IoC container
 image::images/container-magic.png[]
