@@ -11,11 +11,10 @@
 {api-spring-framework}/context/ApplicationContext.html[`ApplicationContext`]
 是 `BeanFactory` 的一个子接口 它增加了:
 
-* Easier integration with Spring's AOP features
+* 更加简单的对于Spring AOP特性的集成。
 * Message resource handling (for use in internationalization)
 * Event publication
-* Application-layer specific contexts such as the `WebApplicationContext`
-for use in web applications.
+* 基于不同应用场景的上下文，例如应用与web应用的 `WebApplicationContext`
 
 In short, the `BeanFactory` provides the configuration framework and basic
 functionality, and the `ApplicationContext` adds more enterprise-specific functionality.
