@@ -1,0 +1,106 @@
+[[overview]]
+= Spring概览
+:toc: left
+:toclevels: 1
+:docinfo1:
+
+Spring使开发企业级java应用程序变得简单,它通过支持groovy和kotlin，并且弹性的创建应用程序的依赖，为企业级
+环境拥抱java语言提供了一切便利。Spring 5.1需要JDK8+并且对JDK11 LTS提供了开箱即用的支持。推荐使用java SE8 update60及其以上的补丁版本的JDK。
+
+Spring支持大量不同的应用场景,在大型企业级应用中，应用通常长期运行，并且通常，必须使用一些开发者不可控制更新周期的应用服务器和JDK版本。
+也有一些应用只是使用嵌入式的服务器跑一个单独的jar包，例如可能只是一个云环境，也有可能是一个不需要服务器的独立应用（例如批处理或者集成工作流）。
+
+Spring是开源的，它有一个基于多样化的应用场景提供持续反馈的活跃的开源社区，这使spring得以持续的发展。
+
+
+[[overview-spring]]
+== 关于"Spring"的含义
+术语Spring在不同的语境之中，有不同的意思，它可以用来指Spring项目本身，就是所有这一切的根源。随着时间的发展，其他的基于Spring的项目被建立起来了。当人们提及Spring
+通常是指这整个项目家族。本文档聚焦于这一切的基础：Spring框架本身。
+Spring框架被分成各种模块，应用可以选择其将要使用的模块，在一切的中心，就是核心容器，它包括一个配置模型和一个依赖注入的机制。
+除此之外，Spring框架提供了对不同的项目的基础支持(消息，事务，持久化，WEB)，它也包含基于Servlet的Spring MVC web框架，同时也有reactive web框架 Spring Webflux
+
+注意：Spring框架的jar包zecchino通过JDK9的module方式加载（“Jigsaw”），在使用Jigsa的程序中，Spring5的jar包将通过定义了稳定的语言级别的模块名称（spring.core,spring.context等不同与artifact 这里使用.代替了-） 
+"Automatic-Module-Name" manifest entries来启用，当然spring框架在JDK8 和JDK9+上依然可以采用classpath的方式访问。
+
+
+[[overview-history]]
+== Spring框架和Spring的历史
+
+Spring因为早期
+https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition[J2EE] 标准的复杂性而在2003年被创建了出来.
+有人认为它们是竞争关系, 世界上Spring和javaEE是互补关系. Spring的开发模型并没有完全拥抱JavaEE;
+而是，集成了精心挑选的javaEE旗下的模块。
+* Servlet API (https://jcp.org/en/jsr/detail?id=340[JSR 340])
+* WebSocket API (https://www.jcp.org/en/jsr/detail?id=356[JSR 356])
+* Concurrency Utilities (https://www.jcp.org/en/jsr/detail?id=236[JSR 236])
+* JSON Binding API (https://jcp.org/en/jsr/detail?id=367[JSR 367])
+* Bean Validation (https://jcp.org/en/jsr/detail?id=303[JSR 303])
+* JPA (https://jcp.org/en/jsr/detail?id=338[JSR 338])
+* JMS (https://jcp.org/en/jsr/detail?id=914[JSR 914])
+* 如果有必要也可以使用JTA/JCA 来管理事务.
+
+Spring 框架也支持依赖注入
+(https://www.jcp.org/en/jsr/detail?id=330[JSR 330]) 和通用注解
+(https://jcp.org/en/jsr/detail?id=250[JSR 250]) 标准, 应用开发者可以用它们来替代Spring提供的机制
+
+Spring5.0需要至少高于JavaEE7的javaEE来支持运行 (例如 Servlet 3.1+, JPA 2.1+)
+同时它提供了对javaEE8API的开箱即用的支持
+在使用javaEE8时(例如Servlet 4.0, JSON Binding API)Spring也可以完全兼容，例如在使用以下环境Tomcat 8 and 9, WebSphere 9, and JBoss EAP 7时。
+
+随着时间的推移，javaEE的角色在进化，在早期，javaEE和Spring的应用是要部署到应用服务器中去的。现在，感谢SpringBoot的帮助，应用可以基于devops构建，使用云友好的方式进行部署。
+内置servlet容器从而不需要很大的变化。在Spring5.x中WebFlux应用甚至不需要ServletApi，它可以运行在服务器上（例如netty）而并不需要servlet容器。
+
+Spring依然在创新并进化着，在Spring框架之上，诞生了很多其他的项目，例如Spring Boot, Spring Security, Spring Data, Spring Cloud, Spring Batch等，它们每个项目都有自己的源码库，问题追踪，和开发周期。 项目列表在这里 https://spring.io/projects[spring.io/projects] 
+
+[[overview-philosophy]]
+== 设计哲学
+当你研究一个框架的时候，最重要的不仅是要知道它是什么，而且要知道它所遵守的原则，以下就是Spring框架的指导原则。
+
+* 在各个层面提供选择。Spring让你尽可能晚地推迟设计决策。
+例如,您可以不修改代码的通过配置切换数据库持化功能。这同样适用于其他基础设施的关注点和集成
+第三方api。
+* Accommodate diverse perspectives. Spring embraces flexibility and is not opinionated
+about how things should be done. It supports a wide range of application needs with
+different perspectives.
+* Maintain strong backward compatibility. Spring’s evolution has been carefully managed
+to force few breaking changes between versions. Spring supports a carefully chosen range
+of JDK versions and third-party libraries to facilitate maintenance of applications and
+libraries that depend on Spring.
+* Care about API design. The Spring team puts a lot of thought and time into making APIs
+that are intuitive and that hold up across many versions and many years.
+* Set high standards for code quality. The Spring Framework puts a strong emphasis on
+meaningful, current, and accurate javadoc. It is one of very few projects that can claim
+clean code structure with  no circular dependencies between packages.
+
+
+
+
+[[overview-feedback]]
+== Feedback and Contributions
+
+For how-to questions or diagnosing or debugging issues, we suggest using StackOverflow,
+and we have a https://spring.io/questions[questions page] that lists the suggested tags to use.
+If you're fairly certain that there is a problem in the Spring Framework or would like
+to suggest a feature, please use the https://github.com/spring-projects/spring-framework/issues[GitHub Issues].
+
+If you have a solution in mind or a suggested fix, you can submit a pull request on
+https://github.com/spring-projects/spring-framework[Github]. However, please keep in mind
+that, for all but the most trivial issues, we expect a ticket to be filed in the issue
+tracker, where discussions take place and leave a record for future reference.
+
+For more details see the guidelines at the
+https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING.md[CONTRIBUTING],
+top-level project page.
+
+
+
+[[overview-getting-started]]
+== 开始
+
+如果你刚刚开始接触Spring, 你可能想要通过一个基于 https://projects.spring.io/spring-boot/[Spring Boot]的项目来开始你的学习. SpringBoot提供了一条快速可选的产品级别的进入spring的道路. 
+它是基于Spring框架的，约定优于配置，它被设计的可以快速开始。
+
+你可以使用 https://start.spring.io/[start.spring.io] 来生成一个项目或者按照 https://spring.io/guides["Getting Started" guides]的指导新建一个项目, 例如
+https://spring.io/guides/gs/rest-service/[Getting Started Building a RESTful Web Service]这个项目。
+为了能够更容易的切入其中，这些引导都非常的面向任务，并且大多数都是基于Springboot的，它们也包含你可能在日常项目中需要的其它项目和Spring的组合
