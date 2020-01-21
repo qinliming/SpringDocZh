@@ -107,12 +107,7 @@ dependency-inject domain objects with Spring>>.
 
 [[beans-factory-instantiation]]
 === 初始化一个容器
-
-The location path or paths
-supplied to an `ApplicationContext` constructor are resource strings that let
-the container load configuration metadata from a variety of external resources, such
-as the local file system, the Java `CLASSPATH`, and so on.
-
+传输给 `ApplicationContext` 的构造方法的定位路径信息是一个资源字符串，这使得容器可以通过多种外部资源加载配置元数据，例如通过本地文件或者java CLASSPATH 等等。
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
@@ -126,13 +121,11 @@ as the local file system, the Java `CLASSPATH`, and so on.
 
 [NOTE]
 ====
-After you learn about Spring's IoC container, you may want to know more about Spring's
-`Resource` abstraction (as described in <<resources>>), which provides a convenient
-mechanism for reading an InputStream from locations defined in a URI syntax. In particular,
-`Resource` paths are used to construct applications contexts, as described in <<resources-app-ctx>>.
+在你学习了Spring IoC容器之后你可以想了解更多关于Spring的 `Resources` 抽象概念(如 <<resources>>所述), 
+它为从本地通过URI读取输入流提供了方便的机制，尤其， `Resource` 路径可以被用于初始化应用程序上下文，如<<resources-app-ctx>>所述。
 ====
 
-The following example shows the service layer objects `(services.xml)` configuration file:
+以下代码展示了服务层定义的配置文件 `(services.xml)`
 
 [source,xml,indent=0,subs="verbatim,quotes"]
 ----
@@ -155,7 +148,7 @@ The following example shows the service layer objects `(services.xml)` configura
 	</beans>
 ----
 
-The following example shows the data access objects `daos.xml` file:
+以下定义了DAO层的配置文件 `daos.xml` 
 
 [source,xml,indent=0,subs="verbatim,quotes"]
 ----
@@ -179,27 +172,19 @@ The following example shows the data access objects `daos.xml` file:
 	</beans>
 ----
 
-In the preceding example, the service layer consists of the `PetStoreServiceImpl` class
-and two data access objects of the types `JpaAccountDao` and `JpaItemDao` (based
-on the JPA Object-Relational Mapping standard). The `property name` element refers to the
-name of the JavaBean property, and the `ref` element refers to the name of another bean
-definition. This linkage between `id` and `ref` elements expresses the dependency between
-collaborating objects. For details of configuring an object's dependencies, see
+在前面的例子中，Service层由 `PetStoreServiceImpl` 和 `JpaAccountDao` `JpaItemDao` 两个DAO（基于JPA ORM标准）组成
+`name` 属性 引用自javabean的属性, `ref` 引用了另一个bean的定义，通过 `id` 和 `ref` 这种连接描述了协作类之间的依赖关系，想了解更多关于对象依赖的内容 参考 
 <<beans-dependencies,Dependencies>>.
 
 
 [[beans-factory-xml-import]]
-==== Composing XML-based Configuration Metadata
+==== 组合基于XML的配置元数据
 
-It can be useful to have bean definitions span multiple XML files. Often, each individual
-XML configuration file represents a logical layer or module in your architecture.
-
-You can use the application context constructor to load bean definitions from all these
-XML fragments. This constructor takes multiple `Resource` locations, as was shown in the
-<<beans-factory-instantiation, previous section>>. Alternatively, use one or more
-occurrences of the `<import/>` element to load bean definitions from another file or
-files. The following example shows how to do so:
-
+bean可以定义在多个XML里面是非常有用的。通常，每一个独立的XML配置文件代表工程中的一个逻辑层或者模块。
+你可以用applicationcontext 的构造器加载所有这些xml文件的beans定义如
+<<beans-factory-instantiation, previous section>> 写的一样这个构造器可以加载多个资源.  
+使用一个或者多个`<import/>` 去从一个bean配置文件里加载另一个。
+以下配置文件展示了这个过程:
 [source,xml,indent=0,subs="verbatim,quotes"]
 ----
 	<beans>
@@ -211,17 +196,11 @@ files. The following example shows how to do so:
 		<bean id="bean2" class="..."/>
 	</beans>
 ----
-
-In the preceding example, external bean definitions are loaded from three files:
-`services.xml`, `messageSource.xml`, and `themeSource.xml`. All location paths are
-relative to the definition file doing the importing, so `services.xml` must be in the
-same directory or classpath location as the file doing the importing, while
-`messageSource.xml` and `themeSource.xml` must be in a `resources` location below the
-location of the importing file. As you can see, a leading slash is ignored. However, given
-that these paths are relative, it is better form not to use the slash at all. The
-contents of the files being imported, including the top level `<beans/>` element, must
-be valid XML bean definitions, according to the Spring Schema.
-
+以上例子中，外部的bean定义加载自 `services.xml`, `messageSource.xml`, 和 `themeSource.xml` 三个文件。
+所有这些路径都是相对于加载这些文件的xml的相对路径。所以 `services.xml` 必须和加载该文件的文件位于统一目录,同时
+`messageSource.xml` 和 `themeSource.xml` 必须位于 在加载文件的文件目录下的 `resources` 中。
+正如你所见到的，地一个/被忽略了，然而因为都用相对路径，所以最好不要在前面加/
+文件的内容会被导入，包括开头的 `<beans/>` 它们必须是遵守Spring Schema定一个文件。
 [NOTE]
 ====
 It is possible, but not recommended, to reference files in parent directories using a
