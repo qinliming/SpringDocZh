@@ -245,12 +245,10 @@ bean可以定义在多个XML里面是非常有用的。通常，每一个独立�
 [[beans-factory-client]]
 === 使用容器
 
-The `ApplicationContext` is the interface for an advanced factory capable of maintaining
-a registry of different beans and their dependencies. By using the method `T getBean(String
-name, Class<T> requiredType)`, you can retrieve instances of your beans.
+`ApplicationContext` 是一个高级的能够管理beans和其依赖的注册表工厂的接口。 通过调用 `T getBean(String
+name, Class<T> requiredType)`, 你可以检索你bean的实例。
 
-The `ApplicationContext` lets you read bean definitions and access them, as the following
-example shows:
+`ApplicationContext` 使你能够读取bean定义并且获取他们, 如下文所示：
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
@@ -279,10 +277,8 @@ example shows:
     var userList = service.getUsernameList()
 ----
 
-With Groovy configuration, bootstrapping looks very similar. It has a different context
-implementation class which is Groovy-aware (but also understands XML bean definitions).
-The following example shows Groovy configuration:
-
+使用groovy配置，启动看起来很简单，它使用了不同的Groovy相关的上下文实现（同时它也能读取XMLbean配置）
+下面的实例展示了这种配置模式
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
@@ -294,10 +290,7 @@ The following example shows Groovy configuration:
 val context = GenericGroovyApplicationContext("services.groovy", "daos.groovy")
 ----
 
-The most flexible variant is `GenericApplicationContext` in combination with reader
-delegates -- for example, with `XmlBeanDefinitionReader` for XML files, as the following
-example shows:
-
+最有弹性可伸缩的方式是使用 `GenericApplicationContext` 并且配合读取标识 -- 例如，使用 `XmlBeanDefinitionReader` 读取XML 实例如下。
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
@@ -313,8 +306,7 @@ example shows:
 	context.refresh()
 ----
 
-You can also use the `GroovyBeanDefinitionReader` for Groovy files, as the following
-example shows:
+你也可以使用 `GroovyBeanDefinitionReader` 读取groovy配置 如下文所示:
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
@@ -331,43 +323,25 @@ example shows:
 	context.refresh()
 ----
 
-You can mix and match such reader delegates on the same `ApplicationContext`,
-reading bean definitions from diverse configuration sources.
+你可以在同一个 `ApplicationContext` 上混用这些读取器标识，从不同的配置文件中获取bean定义。
 
-You can then use `getBean` to retrieve instances of your beans. The `ApplicationContext`
-interface has a few other methods for retrieving beans, but, ideally, your application
-code should never use them. Indeed, your application code should have no calls to the
-`getBean()` method at all and thus have no dependency on Spring APIs at all. For example,
-Spring's integration with web frameworks provides dependency injection for various web
-framework components such as controllers and JSF-managed beans, letting you declare
-a dependency on a specific bean through metadata (such as an autowiring annotation).
-
-
+然后，你就可以用 `getBean` 检索beans的实现，`ApplicationContext`也有几个其他的方法来检索beans，但是，明智的是不要去使用那些方法。
+事实上你的应用也不应该去调用 `getBean()` 方法，并且因此不需要以来Spring的API。例如Spring集成到web框架中去为不同的web模块提供依赖注入例如，控制器和JSF管理的bean，允许你通过一个特殊的包含在bean里的元数据定义依赖。（例如，autowire注解）
 
 
 [[beans-definition]]
-== Bean Overview
+== Bean 概述
 
-A Spring IoC container manages one or more beans. These beans are created with the
-configuration metadata that you supply to the container (for example, in the form of XML
-`<bean/>` definitions).
+Spring IoC容器管理一个或者多个bean，这些bean是通过你提供给容器的配置元数据而进行创建的。（例如，基于XML的配置文件里面的 `<bean/>`）
 
-Within the container itself, these bean definitions are represented as `BeanDefinition`
-objects, which contain (among other information) the following metadata:
 
-* A package-qualified class name: typically, the actual implementation class of the
-  bean being defined.
-* Bean behavioral configuration elements, which state how the bean should behave in the
-  container (scope, lifecycle callbacks, and so forth).
-* References to other beans that are needed for the bean to do its work. These
-  references are also called collaborators or dependencies.
-* Other configuration settings to set in the newly created object -- for example, the size
-  limit of the pool or the number of connections to use in a bean that manages a
-  connection pool.
+在container内部，这些定义是通过 `BeanDefinition` 来表示的，它包含一下元数据(包括一些其他信息)。
 
-This metadata translates to a set of properties that make up each bean definition.
-The following table describes these properties:
-
+* 一个包相关的类名：一般是确切的bean实现类。
+* Bean行为的配置元素，它定义了bean在容器内的行为。(scope, lifecycle callbacks等等).
+* 引用其他的它需要的bean去完成工作，这种引用通常叫做协作者或者依赖。
+* 其他的需要在新建立的对象上被设置的内容 -- 例如, 在连接池管理类里设置连接池的大小
+这些元数据被翻译成组成bean 定义类的属性，下面这个表展示了这些属性。
 [[beans-factory-bean-definition-tbl]]
 .The bean definition
 |===
