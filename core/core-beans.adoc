@@ -212,19 +212,13 @@ bean可以定义在多个XML里面是非常有用的。通常，每一个独立�
 
 ====
 
-The namespace itself provides the import directive feature. Further
-configuration features beyond plain bean definitions are available in a selection
-of XML namespaces provided by Spring -- for example, the `context` and `util` namespaces.
-
+这个namespace本身提供了import这个指令的特性，在其他Spring提供的namepspace里有更多除了bean定义之外的特性，例如 `context` 和 `utils` namespace
 
 [[groovy-bean-definition-dsl]]
-==== The Groovy Bean Definition DSL
+==== Groovy Bean 定义 DSL
 
-As a further example for externalized configuration metadata, bean definitions can also
-be expressed in Spring's Groovy Bean Definition DSL, as known from the Grails framework.
-Typically, such configuration live in a ".groovy" file with the structure shown in the
-following example:
-
+一个关于外部配置元数据定义的更加深入的例子，bean定义也可以通过Spring的groovy bean DSL进行描述，正如在grail框架里一样。
+通常这些定义被写在 `.groovy` 文件里，如下文所述：
 [source,groovy,indent=0,subs="verbatim,quotes"]
 ----
 	beans {
@@ -246,14 +240,10 @@ following example:
 	}
 ----
 
-This configuration style is largely equivalent to XML bean definitions and even
-supports Spring's XML configuration namespaces. It also allows for importing XML
-bean definition files through an `importBeans` directive.
-
-
+这种配置模式，基本和XML模式相同，甚至可以支持xml里面的namespace，它同样支持通过 `importBeans` 指令引入XML
 
 [[beans-factory-client]]
-=== Using the Container
+=== 使用容器
 
 The `ApplicationContext` is the interface for an advanced factory capable of maintaining
 a registry of different beans and their dependencies. By using the method `T getBean(String
