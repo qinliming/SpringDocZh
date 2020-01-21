@@ -200,22 +200,16 @@ bean可以定义在多个XML里面是非常有用的。通常，每一个独立�
 所有这些路径都是相对于加载这些文件的xml的相对路径。所以 `services.xml` 必须和加载该文件的文件位于统一目录,同时
 `messageSource.xml` 和 `themeSource.xml` 必须位于 在加载文件的文件目录下的 `resources` 中。
 正如你所见到的，地一个/被忽略了，然而因为都用相对路径，所以最好不要在前面加/
-文件的内容会被导入，包括开头的 `<beans/>` 它们必须是遵守Spring Schema定一个文件。
+文件的内容会被导入，包括开头的 `<beans/>` 它们必须是遵守Spring Schema的定义。
+
 [NOTE]
 ====
-It is possible, but not recommended, to reference files in parent directories using a
-relative "../" path. Doing so creates a dependency on a file that is outside the current
-application. In particular, this reference is not recommended for `classpath:` URLs (for
-example, `classpath:../services.xml`), where the runtime resolution process chooses the
-"`nearest`" classpath root and then looks into its parent directory. Classpath
-configuration changes may lead to the choice of a different, incorrect directory.
+可以通过../加载父目录的文件，但是我们不必推荐这么做。
+这么做会让项目依赖项目外面的目录。尤其，在使用`classpath` URL 的时候不应该这样用例如（`classpath:../services.xml` ），因为运行时会选择“最近”的classpath的根目录然后搜索其父目录。然后当classpath配置改变的时候可能会引起路径错误等问题。 
+你也可以用完整的路径而不用相对路径例如`file:C:/config/services.xml` 或者 `classpath:/config/services.xml`。
+然而, 注意这样会使你的应用耦合于某个特定的目录。
+更好的办法是，通过间接的方式指定绝对路径 -- 例如, 通过 "${...}" 这种可以被解析到JVM的环境变量的方式。
 
-You can always use fully qualified resource locations instead of relative paths: for
-example, `file:C:/config/services.xml` or `classpath:/config/services.xml`. However, be
-aware that you are coupling your application's configuration to specific absolute
-locations. It is generally preferable to keep an indirection for such absolute
-locations -- for example, through "${...}" placeholders that are resolved against JVM
-system properties at runtime.
 ====
 
 The namespace itself provides the import directive feature. Further
